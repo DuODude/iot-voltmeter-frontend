@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltoi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>voltoi</h1>
+        <p>- Iot Volmeter kinda thing</p>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>Probe 1</h3>
+                <div id="val1" class="valbox">
+
+                </div>
+                <div id="chart1Container" style="width: 100%; height: 30vh;"></div>
+            </div>
+            <div class="col">
+                <h3>Probe 2</h3>
+                <div id="val2" class="valbox"></div>
+                <div id="chart2Container" style="width: 100%; height: 30vh;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+
+            var dps = []; // dataPoints
+            var chart1 = new CanvasJS.Chart("chart1Container", {
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+            var chart2 = new CanvasJS.Chart("chart2Container", {
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+
+            var xVal = 0;
+            var yVal = 100;
+            var updateInterval = 200;
+            var dataLength = 100; // number of dataPoints visible at any point
+
+            var updateChart = function (count) {
+
+                count = count || 1;
+
+                for (var j = 0; j < count; j++) {
+                    yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
+                    dps.push({
+                        x: xVal,
+                        y: yVal
+                    });
+                    xVal++;
+                }
+
+                if (dps.length > dataLength) {
+                    dps.shift();
+                }
+
+                chart1.render();
+                chart2.render();
+
+                document.getElementById('val1').innerHTML = yVal;
+                document.getElementById('val2').innerHTML = yVal;
+            };
+
+            updateChart(dataLength);
+            setInterval(function () {
+                updateChart()
+            }, updateInterval);
+        }
+    </script>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+</body>
+
+</html>

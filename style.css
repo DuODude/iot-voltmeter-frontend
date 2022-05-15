@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0 auto;
+    font-family: poppins;
+    text-align: center;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(#fbfbfb 95%, #4F81BC);
+
+}
+
+header {
+    padding-top: 1%;
+    text-align: center;
+    height: 10vh;
+}
+
+h1 {
+    display: inline;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+p {
+    display: inline;
+    font-weight: 100;
+    font-size: 1.5rem;
+}
+
+
+.valbox {
+    font-size: 4rem;
+    font-weight: 200;
+}
+
+.col {
+    box-shadow: 0px 5px 10px 2px #888888;
+    height: 70vh;
+    margin: 5% 2%;
+    border: 3px solid #e5e5e5;
+    border-radius: 5%;
+    padding: 5%;
+}
