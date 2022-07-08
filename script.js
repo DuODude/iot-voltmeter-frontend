@@ -12,7 +12,7 @@ window.onload = function () {
     });
 
     socket.addEventListener("message", function (event) {
-        GlobalVoltage = event.data;
+        GlobalVoltage = parseFloat(event.data);
     });
 
     var dps = []; // dataPoints
