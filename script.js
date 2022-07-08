@@ -23,6 +23,10 @@ window.onload = function () {
                 dataPoints: dps,
             },
         ],
+        axisY: {
+            minimum: 0,
+            maximum: 4,
+        },
     });
 
     var xVal = 0;
