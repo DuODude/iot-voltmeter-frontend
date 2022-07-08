@@ -25,7 +25,7 @@ window.onload = function () {
         ],
         axisY: {
             minimum: -4,
-            maximum: 4,
+            maximum:  4,
         },
     });
 
