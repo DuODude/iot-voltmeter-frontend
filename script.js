@@ -27,8 +27,8 @@ window.onload = function () {
 
     var xVal = 0;
     var yVal = 0;
-    var updateInterval = 50;
-    var dataLength = 100; // number of dataPoints visible at any point
+    var updateInterval = 10;
+    var dataLength = 500; // number of dataPoints visible at any point
 
     var updateChart = function (count) {
         count = count || 1;
